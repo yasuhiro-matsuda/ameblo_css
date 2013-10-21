@@ -216,14 +216,25 @@ background:#f7f7f7;
 /* (3-2) ブログヘッダー
 --------------------------------------------*/
 
+/* メニューを追加するので下にマージンを確保 */
+.skinHeaderFrame {
+margin-bottom: 44px;
+}
 
 /* skinHeaderArea ブログヘッダー980pxエリア */
-.skinHeaderArea{}/* ←ブログヘッダーに背景画像を敷きたいとき */
+/* デフォルトより横幅少し縮めた */
+.skinHeaderArea{
+width: 960px;
+height: 300px;
+background: url(http://stat.blogskin.ameba.jp/blogskin_images/20131021/23/2c/cb/j/o09600300matyaan1382364577613.jpg) no-repeat 50% 50% ;
+}/* ←ブログヘッダーに背景画像を敷きたいとき */
 
 
 /* skinBlogHeadingGroupArea タイトルと説明を囲うエリア */
 .skinBlogHeadingGroupArea{
 padding:20px 0 30px;
+/* タイトルと説明を画面外に移動 */
+margin-top: -500px;
 }
 
 
@@ -242,10 +253,15 @@ padding-bottom:4px;
 /* (3-3) コンテンツエリア
 --------------------------------------------*/
 
+/* コンテンツフレームにpositionを与えることで、ここからのpositionを指定出来るようにしておく */
+.skinContentsFrame {
+position: relative;
+}
 
 /* skinContentsArea コンテンツ980pxエリア */
 .skinContentsArea{
 /* 注 ベースのcssにwidth:980px;の記述有り */
+width: 960px;
 }
 
 
@@ -254,7 +270,10 @@ padding-bottom:4px;
 /* (3-4) メインエリア
 --------------------------------------------*/
 
-
+/* htmlタグに付いてるclass.columnBを付けてwidth当てられてるので同じ厳密さで指定する */
+.columnB .skinMainArea {
+    width: 630px;
+}
 .skinMainArea{}
 
 
@@ -421,6 +440,52 @@ border-color:#b3b3b3;
 /* その他、拡張があれば記述 */
 
 
-
-
-
+/* フリーフレームかフリープラグインで以下のidを持つメニューフレームとエリアを用意する */
+/* メニューフレーム */
+/* コンテンツフレームの上端から上に44pxにメニューを表示。左右に伸縮されても他と同じ位置になるよう調整 */
+#myMenuFrame {
+position: absolute;
+top: -44px;
+left: 0px;
+min-width: 1100px;
+width: 100%;
+margin: 0;
+padding 0;
+}
+/* メニューフレーム */
+#myMenuArea {
+width: 960px;
+margin: 0 auto;
+padding 0;
+}
+/* 飾りなしメニュー */
+#myMenuArea ul{ 
+margin: 0; 
+padding: 0; 
+list-style: none; 
+}
+/* 左詰めで横に並べるリスト */
+#myMenuArea li{ 
+display: inline; 
+padding: 0; 
+margin: 0; 
+float: left;
+}
+/* リンクボックスを作成　左側に色の付いたボーダーを配置合わせて192px*5の960px */
+#myMenuArea li a{
+display: block; 
+border-left: 12px solid #56A9C9;
+background-color: #000000;
+padding: 8px 0px;
+text-decoration: none;
+color: white;
+width: 180px;
+margin: 0px;
+text-align: center;
+font-size: 20px;
+}
+/* ホバー時は背景色とボーダーの色をかえる */
+#myMenuArea li a:hover{
+border-left: 12px solid #5656C9;
+background-color: #333333;
+}
